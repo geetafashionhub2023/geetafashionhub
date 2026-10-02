@@ -1,27 +1,34 @@
 import type { Metadata, Viewport } from "next";
-import { Cinzel, Cormorant_Garamond, Manrope } from "next/font/google";
+import localFont from "next/font/local";
 import { SITE_URL } from "@/lib/env";
 import "./globals.css";
 
-const cormorant = Cormorant_Garamond({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  style: ["normal", "italic"],
+// Fonts are self-hosted (latin subset, variable weights) so builds don't depend on
+// fetching from Google Fonts at build time.
+const cormorant = localFont({
+  src: [
+    { path: "./fonts/cormorant-garamond-latin.woff2", weight: "400 700", style: "normal" },
+    { path: "./fonts/cormorant-garamond-italic-latin.woff2", weight: "400 700", style: "italic" },
+  ],
   variable: "--font-cormorant",
   display: "swap",
+  fallback: ["Georgia", "serif"],
 });
 
-const cinzel = Cinzel({
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
+const cinzel = localFont({
+  src: "./fonts/cinzel-latin.woff2",
+  weight: "400 900",
   variable: "--font-cinzel",
   display: "swap",
+  fallback: ["Georgia", "serif"],
 });
 
-const manrope = Manrope({
-  subsets: ["latin"],
+const manrope = localFont({
+  src: "./fonts/manrope-latin.woff2",
+  weight: "200 800",
   variable: "--font-manrope",
   display: "swap",
+  fallback: ["system-ui", "sans-serif"],
 });
 
 export const metadata: Metadata = {
