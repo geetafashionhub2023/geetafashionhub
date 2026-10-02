@@ -2,6 +2,7 @@ import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { FloatingWhatsApp, MobileActionBar } from "@/components/site/MobileActionBar";
 import { JsonLd } from "@/components/site/JsonLd";
+import { GoogleAnalytics } from "@/components/site/GoogleAnalytics";
 import { directionsForToday } from "@/components/site/TodayLocationCard";
 import { getCategories, getSettings, getTodayLocation } from "@/lib/data";
 import { localBusinessJsonLd, websiteJsonLd } from "@/lib/seo";
@@ -22,6 +23,7 @@ export default async function SiteLayout({ children }: { children: React.ReactNo
       <Footer settings={settings} categories={categories} />
       <MobileActionBar settings={settings} whatsappHref={chat} directionsHref={directionsForToday(today, settings)} />
       <FloatingWhatsApp href={chat} />
+      <GoogleAnalytics />
     </>
   );
 }
