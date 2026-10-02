@@ -1,9 +1,13 @@
-# Netlify deploys Next.js 16 automatically through its OpenNext adapter
-# (@netlify/plugin-nextjs is added for you — no plugin config needed).
+# Netlify's Next.js runtime turns the .next build output into functions, routing and
+# static assets. It is declared explicitly so it always runs — without it the deploy
+# only contains raw build files and every URL returns Netlify's 404 page.
 
 [build]
   command = "npm run build"
   publish = ".next"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
 
 [build.environment]
   NODE_VERSION = "22"
