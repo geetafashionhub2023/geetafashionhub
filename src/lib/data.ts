@@ -16,7 +16,11 @@ export const getSettings = cache(async (): Promise<SiteSettings> => {
   if (!db) return defaultSettings;
   const { data, error } = await db.from("site_settings").select("*").eq("id", 1).maybeSingle();
   if (error) logError("settings", error);
-  return { ...defaultSettings, ...(data ?? {}) } as SiteSettings;
+  const settings = { ...defaultSettings, ...(data ?? {}) } as SiteSettings;
+  // Contact numbers fall back to the defaults until they are filled in on the dashboard.
+  settings.whatsapp_number ||= defaultSettings.whatsapp_number;
+  settings.phone ||= defaultSettings.phone;
+  return settings;
 });
 
 export const getCategories = cache(async (): Promise<Category[]> => {

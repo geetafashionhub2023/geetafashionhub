@@ -15,8 +15,8 @@ const allDays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturd
 export const defaultSettings: SiteSettings = {
   business_name: "Geeta Fashion Hub",
   tagline: "Traditional Elegance, Made Just for You.",
-  whatsapp_number: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? null,
-  phone: process.env.NEXT_PUBLIC_PHONE ?? null,
+  whatsapp_number: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "917226896859",
+  phone: process.env.NEXT_PUBLIC_PHONE || "+91 78610 13775",
   email: null,
   address_line: null,
   locality: null,
