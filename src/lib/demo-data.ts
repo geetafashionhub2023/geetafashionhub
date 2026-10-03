@@ -24,7 +24,7 @@ export const defaultSettings: SiteSettings = {
   state: null,
   postal_code: null,
   country: "IN",
-  maps_url: "https://maps.app.goo.gl/WURcjzB6XdCH1Mtu6",
+  maps_url: "https://share.google/QsvLeklDoI0dHvXVS",
   maps_embed_url: null,
   latitude: null,
   longitude: null,
